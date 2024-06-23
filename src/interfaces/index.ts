@@ -61,6 +61,8 @@ export interface TextRenderProps<T = Record<string, any>> {
 
 export type RenderCustomText = (props: TextRenderProps) => React.ReactNode;
 
+export type RenderCustomAddCircle = () => React.ReactNode;
+
 interface SharedCircleListProps {
   handleStoryItemPress: (item: IUserStory, index?: number) => void;
   /** The color of the avatar border when unseen */
@@ -96,11 +98,13 @@ export interface StoryCircleListViewProps extends SharedCircleListProps {
    * - `keyExtractor`
    */
   avatarFlatListProps?: CircleListViewFlatListProps;
+  RenderCustomAddCircle?: RenderCustomAddCircle
 }
 
 export interface StoryCircleListItemProps extends SharedCircleListProps {
   item: IUserStory;
   index: number
+  RenderCustomAddCircle?: RenderCustomAddCircle
 }
 
 // TODO: add JSDoc comments where necessary
@@ -162,6 +166,7 @@ export interface StoryListItemProps {
 export interface StoryProps {
   /** An array of IUserStory's */
   data: IUserStory[];
+  RenderCustomAddCircle?: RenderCustomAddCircle,
   /** Time in seconds */
   duration: number;
   /** A custom size for the avatar rendered in the FlatList */

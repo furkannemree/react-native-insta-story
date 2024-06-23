@@ -24,6 +24,7 @@ const StoryCircleListItem = ({
   showText,
   avatarTextStyle,
   handleStoryItemPress,
+  RenderCustomAddCircle,
   addStory,
   avatarImageStyle,
   avatarWrapperStyle,
@@ -79,13 +80,14 @@ const StoryCircleListItem = ({
           source={{ uri: item.user_image }}
           defaultSource={Platform.OS === 'ios' ? DEFAULT_AVATAR : null}
         />
-        {index == 0 &&
-          <TouchableOpacity onPress={addStory} style={{
-            position: 'absolute', bottom: 0, right: 0, width: 18, height: 18, borderRadius: 9, backgroundColor: '', justifyContent: 'center',
-            alignItems: 'center', zIndex: 999
-          }}>
-            <Text style={{ color: 'black', fontSize: 12 }}>+</Text>
-          </TouchableOpacity>
+        {index == 0 && RenderCustomAddCircle &&
+          { RenderCustomAddCircle }
+          /*  <TouchableOpacity onPress={addStory} style={{
+             position: 'absolute', bottom: 0, right: 0, width: 18, height: 18, borderRadius: 9, backgroundColor: '', justifyContent: 'center',
+             alignItems: 'center', zIndex: 999
+           }}>
+             <Text style={{ color: 'black', fontSize: 12 }}>+</Text>
+           </TouchableOpacity> */
         }
       </TouchableOpacity>
       {showText && (

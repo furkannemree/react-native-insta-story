@@ -40,6 +40,7 @@ export const Story = ({
   avatarImageStyle,
   avatarWrapperStyle,
   avatarFlatListProps,
+  RenderCustomAddCircle,
 }: StoryProps) => {
   const [dataState, setDataState] = useState<IUserStory[]>(data);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -184,6 +185,7 @@ export const Story = ({
           addStory={addStory}
           handleStoryItemPress={_handleStoryItemPress}
           data={dataState}
+          RenderCustomAddCircle={RenderCustomAddCircle}
           avatarSize={avatarSize}
           unPressedBorderColor={unPressedBorderColor}
           pressedBorderColor={pressedBorderColor}
