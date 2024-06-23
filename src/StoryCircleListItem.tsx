@@ -15,6 +15,7 @@ import DEFAULT_AVATAR from './assets/images/no_avatar.png';
 
 const StoryCircleListItem = ({
   item,
+  index,
   unPressedBorderColor,
   pressedBorderColor,
   unPressedAvatarTextColor,
@@ -23,6 +24,7 @@ const StoryCircleListItem = ({
   showText,
   avatarTextStyle,
   handleStoryItemPress,
+  addStory,
   avatarImageStyle,
   avatarWrapperStyle,
 }: StoryCircleListItemProps) => {
@@ -58,11 +60,11 @@ const StoryCircleListItem = ({
           avatarWrapperStyle,
           !isPressed
             ? {
-                borderColor: unPressedBorderColor ?? 'red',
-              }
+              borderColor: unPressedBorderColor ?? 'red',
+            }
             : {
-                borderColor: pressedBorderColor ?? 'grey',
-              },
+              borderColor: pressedBorderColor ?? 'grey',
+            },
         ]}
       >
         <Image
@@ -77,6 +79,14 @@ const StoryCircleListItem = ({
           source={{ uri: item.user_image }}
           defaultSource={Platform.OS === 'ios' ? DEFAULT_AVATAR : null}
         />
+        {index == 0 &&
+          <TouchableOpacity onPress={addStory} style={{
+            position: 'absolute', bottom: 0, right: 0, width: 18, height: 18, borderRadius: 9, backgroundColor: '', justifyContent: 'center',
+            alignItems: 'center', zIndex: 999
+          }}>
+            <Text style={{ color: 'black', fontSize: 12 }}>+</Text>
+          </TouchableOpacity>
+        }
       </TouchableOpacity>
       {showText && (
         <Text

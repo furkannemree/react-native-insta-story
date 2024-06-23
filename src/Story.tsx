@@ -26,6 +26,7 @@ export const Story = ({
   showAvatarText,
   avatarTextStyle,
   onStorySeen,
+  addStory,
   renderCloseComponent,
   renderSwipeUpComponent,
   renderTextComponent,
@@ -48,14 +49,20 @@ export const Story = ({
 
   // Component Functions
   const _handleStoryItemPress = (item: IUserStory, index?: number) => {
-    const newData = dataState.slice(index);
-    if (onStart) {
-      onStart(item);
-    }
+    if (index == 0 && item?.stories?.length == 0) {
+      if (addStory) {
+        addStory()
+      }
+    } else {
+      const newData = dataState.slice(index);
+      if (onStart) {
+        onStart(item);
+      }
 
-    setCurrentPage(0);
-    setSelectedData(newData);
-    setIsModalOpen(true);
+      setCurrentPage(0);
+      setSelectedData(newData);
+      setIsModalOpen(true);
+    }
   };
 
   useEffect(() => {
@@ -174,6 +181,7 @@ export const Story = ({
     <Fragment>
       <View style={style}>
         <StoryCircleListView
+          addStory={addStory}
           handleStoryItemPress={_handleStoryItemPress}
           data={dataState}
           avatarSize={avatarSize}

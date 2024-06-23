@@ -81,6 +81,8 @@ interface SharedCircleListProps {
   avatarImageStyle?: ImageStyle;
   /** Custom styles for each individual avatar wrapper */
   avatarWrapperStyle?: ViewStyle;
+
+  addStory?: () => void
 }
 
 export interface StoryCircleListViewProps extends SharedCircleListProps {
@@ -98,6 +100,7 @@ export interface StoryCircleListViewProps extends SharedCircleListProps {
 
 export interface StoryCircleListItemProps extends SharedCircleListProps {
   item: IUserStory;
+  index: number
 }
 
 // TODO: add JSDoc comments where necessary
@@ -177,6 +180,8 @@ export interface StoryProps {
   onClose?: (props?: IUserStory) => any;
   /** Called when story item is loaded */
   onStart?: (props?: IUserStory) => any;
+
+  addStory?: () => void
   /**
    * Function which will get called every time a story is seen. Will be called
    * every time the user swipes backwards and forwards to that screen.

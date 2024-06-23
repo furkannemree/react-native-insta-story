@@ -12,6 +12,7 @@ const StoryCircleListView = ({
   pressedAvatarTextColor,
   avatarSize,
   showText,
+  addStory,
   avatarTextStyle,
   avatarImageStyle,
   avatarWrapperStyle,
@@ -37,6 +38,8 @@ const StoryCircleListView = ({
           unPressedAvatarTextColor={unPressedAvatarTextColor}
           pressedAvatarTextColor={pressedAvatarTextColor}
           item={item}
+          index={index}
+          addStory={addStory}
           showText={showText}
           avatarTextStyle={avatarTextStyle}
           avatarImageStyle={avatarImageStyle}
