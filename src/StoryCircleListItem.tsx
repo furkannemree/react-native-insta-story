@@ -81,7 +81,7 @@ const StoryCircleListItem = ({
           defaultSource={Platform.OS === 'ios' ? DEFAULT_AVATAR : null}
         />
         {index == 0 && RenderCustomAddCircle &&
-          { RenderCustomAddCircle }
+          RenderCustomAddCircle()
           /*  <TouchableOpacity onPress={addStory} style={{
              position: 'absolute', bottom: 0, right: 0, width: 18, height: 18, borderRadius: 9, backgroundColor: '', justifyContent: 'center',
              alignItems: 'center', zIndex: 999
