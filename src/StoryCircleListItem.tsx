@@ -61,7 +61,7 @@ const StoryCircleListItem = ({
           avatarWrapperStyle,
           !isPressed
             ? {
-              borderColor: unPressedBorderColor ?? 'red',
+              borderColor: (index == 0 && item?.stories.length == 0) ? undefined : unPressedBorderColor ?? 'red',
             }
             : {
               borderColor: pressedBorderColor ?? 'grey',
@@ -82,12 +82,6 @@ const StoryCircleListItem = ({
         />
         {index == 0 && RenderCustomAddCircle &&
           RenderCustomAddCircle()
-          /*  <TouchableOpacity onPress={addStory} style={{
-             position: 'absolute', bottom: 0, right: 0, width: 18, height: 18, borderRadius: 9, backgroundColor: '', justifyContent: 'center',
-             alignItems: 'center', zIndex: 999
-           }}>
-             <Text style={{ color: 'black', fontSize: 12 }}>+</Text>
-           </TouchableOpacity> */
         }
       </TouchableOpacity>
       {showText && (
@@ -102,7 +96,7 @@ const StoryCircleListItem = ({
             },
             isPressed
               ? { color: pressedAvatarTextColor || undefined }
-              : { color: unPressedAvatarTextColor || undefined },
+              : { color: (index == 0 && item?.stories.length == 0) ? pressedAvatarTextColor : unPressedAvatarTextColor || undefined },
           ]}
         >
           {item.user_name}
