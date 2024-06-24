@@ -28,6 +28,7 @@ export const Story = ({
   onStorySeen,
   addStory,
   renderCloseComponent,
+  renderStoryFooter,
   renderSwipeUpComponent,
   renderTextComponent,
   loadedAnimationBarStyle,
@@ -129,6 +130,7 @@ export const Story = ({
           renderSwipeUpComponent={renderSwipeUpComponent}
           renderCloseComponent={renderCloseComponent}
           renderTextComponent={renderTextComponent}
+          renderStoryFooter={renderStoryFooter}
           onClosePress={() => {
             setIsModalOpen(false);
             if (onClose) {

@@ -60,7 +60,16 @@ export interface TextRenderProps<T = Record<string, any>> {
   onPress: (props?: any) => any;
 }
 
+export interface FooterRenderProps<T = Record<string, any>> {
+  /** The current item */
+  item: IUserStoryItem<T>;
+  onPress: (props?: any) => any;
+}
+
+export type RenderStoryFooter = (props: FooterRenderProps) => React.ReactNode;
+
 export type RenderCustomText = (props: TextRenderProps) => React.ReactNode;
+
 
 export type RenderCustomAddCircle = () => React.ReactNode;
 
@@ -138,6 +147,10 @@ export interface StoryListItemProps {
    * IUserStoryItem and username are passed as args.
    */
   renderTextComponent?: RenderCustomText;
+
+
+  renderStoryFooter?: RenderStoryFooter
+
   onFinish?: (props?: any) => any;
   onClosePress: (props?: any) => any;
   /**
@@ -168,6 +181,7 @@ export interface StoryProps {
   /** An array of IUserStory's */
   data: IUserStory[];
   RenderCustomAddCircle?: RenderCustomAddCircle,
+  renderStoryFooter?: RenderStoryFooter,
   /** Time in seconds */
   duration: number;
   /** A custom size for the avatar rendered in the FlatList */

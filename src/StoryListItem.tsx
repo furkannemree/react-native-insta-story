@@ -38,6 +38,7 @@ export const StoryListItem = ({
   renderCloseComponent,
   renderSwipeUpComponent,
   renderTextComponent,
+  renderStoryFooter,
   loadedAnimationBarStyle,
   unloadedAnimationBarStyle,
   animationBarContainerStyle,
@@ -327,6 +328,12 @@ export const StoryListItem = ({
           <Text style={styles.swipeText}></Text>
           <Text style={styles.swipeText}>{swipeText}</Text>
         </TouchableOpacity>
+      )}
+      {typeof renderStoryFooter === 'function' && (
+        renderStoryFooter({
+          onPress: onClosePress,
+          item: content[current],
+        })
       )}
     </GestureRecognizer>
   );
