@@ -255,6 +255,7 @@ export const StoryListItem = ({
               renderTextComponent({
                 item: content[current],
                 profileName,
+                onPress: onClosePress,
               })
             ) : (
               <Text style={styles.avatarText}>{profileName}</Text>
